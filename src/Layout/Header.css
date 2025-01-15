@@ -1,0 +1,36 @@
+/* Custom styling for the header */
+.custom-navbar {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add shadow for a modern look */
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem; /* Increase font size for brand name */
+    font-weight: bold;
+  }
+  
+  .navbar-nav .nav-link {
+    font-size: 1.1rem;
+    padding: 10px 15px;
+  }
+  
+  .navbar-nav .nav-link.active {
+    color: #28a745; /* Change color for active link */
+    font-weight: 600;
+  }
+  
+  .navbar-toggler {
+    border: none; /* Remove border around toggler */
+  }
+  
+  .navbar-toggler-icon {
+    background-color: #28a745; /* Change color of hamburger icon */
+  }
+
+  .logo {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+  }
+  .text-decoration-none {
+    color: #007bff;
+}
