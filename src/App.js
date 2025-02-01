@@ -18,6 +18,8 @@ import AdminDash from './AdminControl/AdminDash';
 import AddMenuItem from './Adminpages/AddMenuItem';
 import ViewMenuItem from './Adminpages/ViewMenuItem';
 import UpdateMenuItem from './Adminpages/UpdateMenuItem';
+import Adash from './AdminControl/Adash';
+import ViewOrders from './Adminpages/ViewOrders';
 
 function App() {
   return (
@@ -40,11 +42,9 @@ function App() {
         <Route path='/addmenuitem' element={<AddMenuItem/>}></Route>
         <Route path='/viewmenuitem' element={<ViewMenuItem/>}></Route>
         <Route path='/updatemenuitem/:id' element={<UpdateMenuItem/>}></Route>
-
-
-
-
         <Route path='/order' element={<Order/>}></Route>
+        <Route path='/adash' element={<Adash/>}></Route>
+        <Route path='/vieworder' element={<ViewOrders/>}></Route>
 
 
       </Routes>

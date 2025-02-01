@@ -20,7 +20,7 @@ export default function Login() {
             .then((response) => {
                 console.log(response.data);
                 alert(`Login Successful!\nWelcome back, ${username}!`);
-                navigate('/home');
+                navigate('/adash');
             })
             .catch((error) => {
                 console.error(error);

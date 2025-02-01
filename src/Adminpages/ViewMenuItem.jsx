@@ -17,7 +17,7 @@ export default function ViewMenuItem() {
       });
   }, []);
 
-   const deleteMenuItem = (id) => {
+  const deleteMenuItem = (id) => {
     axios
       .delete(`http://localhost:8080/api/menu/menudeletebyid/${id}`)
       .then((res) => {
@@ -30,10 +30,13 @@ export default function ViewMenuItem() {
   };
 
   return (
-    <div className="container my-5 w">
+    <div className="container my-5" style={{ maxWidth: '1100px', backgroundColor: 'rgba(255, 255, 255, 0.9)', padding: '20px', borderRadius: '10px', boxShadow: '0px 4px 8px rgba(0, 0, 0, 0.2)' }}>
       <h1 className="text-center mb-4">Menu Items</h1>
+      <p className="text-center mt-3">
+        Go To Dashboard <Link to="/adash" className="text-primary fw-bold">Dashboard</Link>
+      </p>
       <div className="table-responsive">
-        <table className="table table-striped table-bordered col">
+        <table className="table table-hover table-bordered">
           <thead className="thead-dark">
             <tr>
               <th>Id</th>
@@ -47,43 +50,44 @@ export default function ViewMenuItem() {
             </tr>
           </thead>
           <tbody>
-            {menuItems.map((item) => (
-              <tr key={item.id}>
-                <td>{item.id}</td>
-                <td>{item.name}</td>
-                <td>{item.description}</td>
-                <td>{item.price}</td>
-                <td>{item.availableQty}</td>
-                <td>{item.discount}</td>
-                <td>
-                  <img
-                    src={item.img}
-                    alt={item.name}
-                    className="img-thumbnail"
-                    style={{ maxWidth: '100px', maxHeight: '100px' }}
-                  />
-                </td>
-                <td>
-                  <div className="d-flex">
-                    <Link
-                      to={`/updatemenuitem/${item.id}`}
-                      className="btn btn-primary btn-sm me-1"
-                    >
-                      Update
-                    </Link>
-                    <button
-                      onClick={() => deleteMenuItem(item.id)}
-                      className="btn btn-danger btn-sm"
-                    >
-                      Delete
-                    </button>
-                  </div>
-                </td>
+            {menuItems.length === 0 ? (
+              <tr>
+                <td colSpan="8" className="text-center text-muted">No menu items available</td>
               </tr>
-            ))}
+            ) : (
+              menuItems.map((item) => (
+                <tr key={item.id}>
+                  <td>{item.id}</td>
+                  <td>{item.name}</td>
+                  <td>{item.description}</td>
+                  <td>{item.price}</td>
+                  <td>{item.availableQty}</td>
+                  <td>{item.discount}</td>
+                  <td>
+                    <img
+                      src={item.img}
+                      alt={item.name}
+                      className="img-thumbnail"
+                      style={{ maxWidth: '100px', maxHeight: '100px' }}
+                    />
+                  </td>
+                  <td>
+                    <div className="d-flex gap-2">
+                      <Link to={`/updatemenuitem/${item.id}`} className="btn btn-primary btn-sm">
+                        Update
+                      </Link>
+                      <button onClick={() => deleteMenuItem(item.id)} className="btn btn-danger btn-sm">
+                        Delete
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))
+            )}
           </tbody>
         </table>
       </div>
+      
     </div>
   );
 }

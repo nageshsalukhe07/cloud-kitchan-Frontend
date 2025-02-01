@@ -1,99 +1,123 @@
 import React from 'react'
 import Header from '../Layout/Header'
+import about1 from '../Images/about1.webp'
+import about2 from '../Images/about2.png'
+import about3 from '../Images/about3.png'
+import about4 from '../Images/about4.png'
+import { Link } from 'react-router-dom'
 export default function About() {
   return (
     <div>
       <Header></Header>
-        <br /><br /><br />
-<section class="py-3 py-md-5">
-  <div class="container overflow-hidden">
-    <div class="row gy-5">
-      <div class="col-12">
-        <div class="row align-items-center gy-3 gy-md-0 gx-xl-5">
-          <div class="col-xs-12 col-md-6">
-            <div class="img-wrapper position-relative bsb-hover-push">
-              <a href="#!">
-                <span class="badge rounded-pill text-bg-warning position-absolute top-0 start-0 m-3">Sports</span>
-                <img class="img-fluid rounded w-100 h-100 object-fit-cover" loading="lazy" src="./assets/img/blog-image-1.jpg" alt="Sports"></img>
-              </a>
-            </div>
-          </div>
-          <div class="col-xs-12 col-md-6">
-            <div>
-              <p class="text-secondary mb-1">Nov 11, 2022</p>
-              <h2 class="h1 mb-3"><a class="link-dark text-decoration-none" href="#!">Useful Skateboarding Tips For Beginners</a></h2>
-              <p class="mb-4">Learning how to skateboard can be a simultaneously exciting and terrifying experience. Explore the 20 top tips for beginner skaters.</p>
-              <a class="btn btn-primary" href="#!" target="_self">Read More</a>
-            </div>
-          </div>
-        </div>
-      </div>
+      <br /><br /><br />
+      <section class="py-3 py-md-5">
+        <div class="container overflow-hidden">
+          <div class="row gy-5">
+            <div class="col-12">
+              <div class="row align-items-center gy-3 gy-md-0 gx-xl-5">
+                <div class="col-xs-12 col-md-6">
+                  <div class="img-wrapper position-relative bsb-hover-push">
+                    <a href="#!">
+                      <span class="badge rounded-pill text-bg-warning position-absolute top-0 start-0 m-3">Indian Food</span>
+                      <img class="img-fluid rounded w-100 h-100 object-fit-cover" loading="lazy" src={about1} alt="Indian Food"></img>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                  <div>
+                    <p class="text-secondary mb-1">Nov 11, 2024</p>
+                    <h2 class="h1 mb-3">
+                      <a class="link-dark text-decoration-none" href="#!">Authentic Indian Food Catering for Your Functions</a>
+                    </h2>
+                    <p class="mb-4">
+                      Experience the rich flavors of India with our traditional dishes, expertly prepared and delivered fresh for weddings, corporate events, and celebrations. Explore our diverse Indian menu tailored for every occasion.
+                    </p>
 
-      <div class="col-12">
-        <div class="row align-items-center flex-row-reverse gy-3 gy-md-0 gx-xl-5">
-          <div class="col-xs-12 col-md-6">
-            <div class="img-wrapper position-relative bsb-hover-push">
-              <a href="#!">
-                <span class="badge rounded-pill text-bg-warning position-absolute top-0 end-0 m-3">Travel</span>
-                <img class="img-fluid rounded w-100 h-100 object-fit-cover" loading="lazy" src="./assets/img/blog-image-2.jpg" alt="Travel"></img>
-              </a>
+                    <Link  to='/menuitem' class="btn btn-primary">Read More</Link>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-xs-12 col-md-6">
-            <div>
-              <p class="text-secondary mb-1">Oct 9, 2022</p>
-              <h2 class="h1 mb-3"><a class="link-dark text-decoration-none" href="#!">Strange Facts About Hot Air Balloons</a></h2>
-              <p class="mb-4">You think the Wright Brothers were impressive? Hot air balloons were carrying people through the air almost a century before the Wright Brothers were even born.</p>
-              <a class="btn btn-primary" href="#!" target="_self">Read More</a>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="col-12">
-        <div class="row align-items-center gy-3 gy-md-0 gx-xl-5">
-          <div class="col-xs-12 col-md-6">
-            <div class="img-wrapper position-relative bsb-hover-push">
-              <a href="#!">
-                <span class="badge rounded-pill text-bg-warning position-absolute top-0 start-0 m-3">Photography</span>
-                <img class="img-fluid rounded w-100 h-100 object-fit-cover" loading="lazy" src="./assets/img/blog-image-3.jpg" alt="Photography"></img>
-              </a>
-            </div>
-          </div>
-          <div class="col-xs-12 col-md-6">
-            <div>
-              <p class="text-secondary mb-1">Sep 17, 2022</p>
-              <h2 class="h1 mb-3"><a class="link-dark text-decoration-none" href="#!">Reasons Why Photography Is an Art Form</a></h2>
-              <p class="mb-4">Before the first photo was captured in the 18th century, lifelike images of what the eyes can see could only be made by talented artists.</p>
-              <a class="btn btn-primary" href="#!" target="_self">Read More</a>
-            </div>
-          </div>
-        </div>
-      </div>
+            <div class="col-12">
+              <div class="row align-items-center flex-row-reverse gy-3 gy-md-0 gx-xl-5">
+                <div class="col-xs-12 col-md-6">
+                  <div class="img-wrapper position-relative bsb-hover-push">
+                    <a href="#!">
+                      <span class="badge rounded-pill text-bg-warning position-absolute top-0 end-0 m-3">Magic of Home cooking</span>
+                      <img class="img-fluid rounded w-100 h-100 object-fit-cover" loading="lazy" src={about2} alt="Travel"></img>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                  <div>
+                    <p class="text-secondary mb-1">Oct 9, 2024</p>
+                    <h2 class="h1 mb-3">
+                      <a class="link-dark text-decoration-none" href="#!">Delicious Catering for Every Occasion</a>
+                    </h2>
+                    <p class="mb-4">
+                      Enjoy a hassle-free dining experience with our expertly crafted dishes, delivered fresh for weddings, corporate events, and special celebrations. Explore our diverse menu tailored for every function.
+                    </p>
 
-      <div class="col-12">
-        <div class="row align-items-center flex-row-reverse gy-3 gy-md-0 gx-xl-5">
-          <div class="col-xs-12 col-md-6">
-            <div class="img-wrapper position-relative bsb-hover-push">
-              <a href="#!">
-                <span class="badge rounded-pill text-bg-warning position-absolute top-0 end-0 m-3">Food</span>
-                <img class="img-fluid rounded w-100 h-100 object-fit-cover" loading="lazy" src="./assets/img/blog-image-4.jpg" alt="Food"></img>
-              </a>
+                    <Link  to='/menuitem' class="btn btn-primary"  target="_self">Read More</Link>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="col-xs-12 col-md-6">
-            <div>
-              <p class="text-secondary mb-1">Aug 23, 2022</p>
-              <h2 class="h1 mb-3"><a class="link-dark text-decoration-none" href="#!">Benefits of Having a Heavy Breakfast Every Morning</a></h2>
-              <p class="mb-4">Running late for work or school? "Let’s skip the breakfast!" Well, this might sound like the most ideal idea to save time when you are on the run.</p>
-              <a class="btn btn-primary" href="#!" target="_self">Read More</a>
+
+            <div class="col-12">
+              <div class="row align-items-center gy-3 gy-md-0 gx-xl-5">
+                <div class="col-xs-12 col-md-6">
+                  <div class="img-wrapper position-relative bsb-hover-push">
+                    <a href="#!">
+                      <span class="badge rounded-pill text-bg-warning position-absolute top-0 start-0 m-3">Home maid food</span>
+                      <img class="img-fluid rounded w-100 h-100 object-fit-cover" loading="lazy" src={about3} alt="Photography"></img>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                  <div>
+                    <p class="text-secondary mb-1">Sep 17, 2024</p>
+                    <h2 class="h1 mb-3">
+                      <a class="link-dark text-decoration-none" href="#!">Useful Indian Cooking Tips for Beginners</a>
+                    </h2>
+                    <p class="mb-4">
+                      Learning how to cook Indian food can be a simultaneously exciting and rewarding experience. Explore the 20 top tips for beginner cooks.
+                    </p>
+
+                    <Link  to='/menuitem' class="btn btn-primary" target="_self">Read More</Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <div class="row align-items-center flex-row-reverse gy-3 gy-md-0 gx-xl-5">
+                <div class="col-xs-12 col-md-6">
+                  <div class="img-wrapper position-relative bsb-hover-push">
+                    <a href="#!">
+                      <span class="badge rounded-pill text-bg-warning position-absolute top-0 end-0 m-3">pure veg restaurant</span>
+                      <img class="img-fluid rounded w-100 h-100 object-fit-cover" loading="lazy" src={about4} alt="Food"></img>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                  <div>
+                    <p class="text-secondary mb-1">Aug 23, 2024</p>
+                    <h2 class="h1 mb-3">
+                      <a class="link-dark text-decoration-none" href="#!">Delicious Dishes Crafted from Authentic Recipes</a>
+                    </h2>
+                    <p class="mb-4">
+                      Explore a variety of mouth-watering dishes prepared with traditional and modern recipes. Indulge in flavors that bring every recipe to life.
+                    </p>
+                    <Link  to='/menuitem'class="btn btn-primary"  target="_self">Read More</Link>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
-  </div>
-</section>
-        </div>
   )
 }

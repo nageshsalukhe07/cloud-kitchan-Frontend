@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Header from '../Layout/Header';
+import './MenuItem.css';
 
 export default function MenuItem() {
   const [menuItems, setMenuItems] = useState([]);
   const [selectedMenuItems, setSelectedMenuItems] = useState([]);
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     axios.get('http://localhost:8080/api/menu/menufindall')
@@ -18,21 +19,20 @@ export default function MenuItem() {
     const isSelected = selectedMenuItems.includes(menuItem);
     const updatedSelection = isSelected
       ? selectedMenuItems.filter((item) => item.id !== menuItem.id)
-      : [...selectedMenuItems, menuItem]; 
+      : [...selectedMenuItems, menuItem];
 
     setSelectedMenuItems(updatedSelection);
-
-    // Calculate total price
-    const updatedTotal = updatedSelection.reduce((sum, item) => {
-      const priceWithDiscount = item.discount
-        ? item.discountType === 'percentage'
-          ? item.price - (item.price * item.discount / 100)
-          : item.price - item.discount
-        : item.price;
-      return sum + priceWithDiscount;
-    }, 0);
-    setTotalPrice(updatedTotal);
+    localStorage.setItem('selectedMenuItems', JSON.stringify(updatedSelection));
   };
+
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const filteredMenuItems = menuItems.filter((menu) =>
+    menu.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    menu.description.toLowerCase().includes(searchQuery.toLowerCase())
+  );
 
   return (
     <div>
@@ -40,9 +40,24 @@ export default function MenuItem() {
       <div className="img">
         <div className="container mt-5">
           <h2 className="text-center mb-4">Menu Items</h2>
+
+          <div className="mb-4" style={{ textAlign: 'center' }}>
+            <input
+              type="text"
+              placeholder="Search menu items..."
+              value={searchQuery}
+              onChange={handleSearchChange}
+              className="form-control"
+              style={{ width: '500px', display: 'inline-block' }}
+            />
+            <div className="text-center mt-4  " style={{ marginLeft:'1000px'  }}>
+            <Link to="/order" className="btn btn-primary">View Cart</Link>
+          </div>
+          </div>
+
           <div className="row">
-            {menuItems.length > 0 ? (
-              menuItems.map((menu, index) => (
+            {filteredMenuItems.length > 0 ? (
+              filteredMenuItems.map((menu, index) => (
                 <div className="col-md-4" key={index}>
                   <div className="card mb-4" style={{ width: '18rem', height: '600px' }}>
                     <img
@@ -54,19 +69,10 @@ export default function MenuItem() {
                     <div className="card-body">
                       <h5 className="card-title">{menu.name}</h5>
                       <p className="card-text">{menu.description}</p>
-                      <p className="card-text">
-                        <strong>Price:</strong> {menu.price} Rs
-                      </p>
-                      <p className="card-text">
-                        <strong>Available Quantity:</strong> {menu.availableQty}
-                      </p>
-                      <p className="card-text">
-                        <strong>Discount:</strong> {menu.discount}%
-                      </p>
-                      <button
-                        className="btn btn-primary"
-                        onClick={() => handleMenuItemChange(menu)}
-                      >
+                      <p className="card-text"><strong>Price:</strong> {menu.price} Rs</p>
+                      <p className="card-text"><strong>Available Quantity:</strong> {menu.availableQty}</p>
+                      <p className="card-text"><strong>Discount:</strong> {menu.discount}%</p>
+                      <button className="btn btn-primary" onClick={() => handleMenuItemChange(menu)}>
                         Add to Cart
                       </button>
                     </div>
@@ -79,42 +85,9 @@ export default function MenuItem() {
               </div>
             )}
           </div>
-        </div>
 
-        <div>
-          <h4>Order Summary</h4>
-          <table>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Discounted Price</th>
-                <th>Remove</th>
-              </tr>
-            </thead>
-            <tbody>
-              {selectedMenuItems.map((item) => (
-                <tr key={item.id}>
-                  <td>{item.name}</td>
-                  <td>{item.description}</td>
-                  <td>{item.price - (item.discount ? item.discount : 0)}</td>
-                  <td>
-                    <button
-                      className="btn btn-danger"
-                      onClick={() => handleMenuItemChange(item)}
-                    >
-                      Remove
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          
         </div>
-        <h4 className="mt-3">Total Price: {totalPrice} Rs</h4>
-        <Link to="/placeorder">
-          <button className="btn btn-success">Proceed to Order</button>
-        </Link>
       </div>
     </div>
   );
