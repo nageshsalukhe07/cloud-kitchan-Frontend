@@ -91,6 +91,8 @@ export default function OrderHistory() {
     };
 
     return (
+        <div>
+            <Header />
         <div style={styles.container}>
             <h1 style={styles.heading}>Orders</h1>
             <p style={{ textAlign: 'center', marginBottom: '20px' }}>
@@ -142,6 +144,7 @@ export default function OrderHistory() {
                     </tbody>
                 </table>
             </div>
+        </div>
         </div>
     );
 }
