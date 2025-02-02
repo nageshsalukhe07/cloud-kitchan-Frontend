@@ -50,9 +50,11 @@ export default function MenuItem() {
               className="form-control"
               style={{ width: '500px', display: 'inline-block' }}
             />
-            <div className="text-center mt-4  " style={{ marginLeft:'1000px'  }}>
-            <Link to="/order" className="btn btn-primary">View Cart</Link>
-          </div>
+            <div className="text-center mt-4" style={{ marginLeft: '800px' }}>
+              <Link to="/order" className="btn btn-primary me-3">View Cart</Link>
+              <Link to="/orderhistory" className="btn btn-primary">View Orders</Link>
+            </div>
+
           </div>
 
           <div className="row">
@@ -86,7 +88,7 @@ export default function MenuItem() {
             )}
           </div>
 
-          
+
         </div>
       </div>
     </div>

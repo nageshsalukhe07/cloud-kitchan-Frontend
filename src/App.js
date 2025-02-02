@@ -20,6 +20,7 @@ import ViewMenuItem from './Adminpages/ViewMenuItem';
 import UpdateMenuItem from './Adminpages/UpdateMenuItem';
 import Adash from './AdminControl/Adash';
 import ViewOrders from './Adminpages/ViewOrders';
+import OrderHistory from './Pages/OrderHistory';
 
 function App() {
   return (
@@ -45,6 +46,7 @@ function App() {
         <Route path='/order' element={<Order/>}></Route>
         <Route path='/adash' element={<Adash/>}></Route>
         <Route path='/vieworder' element={<ViewOrders/>}></Route>
+        <Route path='/orderhistory' element={<OrderHistory/>}></Route>
 
 
       </Routes>

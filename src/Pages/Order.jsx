@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Header from '../Layout/Header';
-
 export default function Order() {
   const [selectedMenuItems, setSelectedMenuItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
@@ -63,12 +62,21 @@ export default function Order() {
       })
       .catch((err) => console.error("Error placing order.", err.response?.data || err.message));
   };
-
+  const styles = {
+  dashboardLink: {
+    textAlign: 'center',
+    marginBottom: '20px',
+    color: '#007bff',
+    fontWeight: 'bold'
+}};
   return (
     <div>
       <Header /><br /><br/>
       <div className="container mt-5">
         <h2 className="text-center mb-4">Order Summary</h2>
+        <p style={{ textAlign: 'center', marginBottom: '20px' }}>
+                Go To Menu Item <Link to="/menuitem" style={styles.dashboardLink}>Menu Item</Link>
+            </p>
 
         {selectedMenuItems.length > 0 ? (
           <>
